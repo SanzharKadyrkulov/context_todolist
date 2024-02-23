@@ -4,22 +4,22 @@ import { ListGroup } from "react-bootstrap";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-	const { todos, getTodos } = useTodoContext();
+  const { todos, getTodos } = useTodoContext();
 
-	useEffect(() => {
-		getTodos();
-	}, []);
+  useEffect(() => {
+    getTodos();
+  }, []);
 
-	return (
-		<div>
-			<h1>TodoList</h1>
-			<ListGroup>
-				{todos.map((item) => (
-					<TodoItem key={item.id} item={item} />
-				))}
-			</ListGroup>
-		</div>
-	);
+  return (
+    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <h1 style={{ margin: "50px 0", textAlign: "center" }}>TodoList</h1>
+      <ListGroup>
+        {todos.map((item) => (
+          <TodoItem key={item.id} item={item} />
+        ))}
+      </ListGroup>
+    </div>
+  );
 };
 
 export default TodoList;

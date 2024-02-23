@@ -4,24 +4,20 @@ import { useTodoContext } from "../contexts/TodoContext";
 import { useNavigate } from "react-router-dom";
 
 const TodoItem = ({ item }) => {
-	const { deleteTodo } = useTodoContext();
-	const navigate = useNavigate();
+  const { deleteTodo } = useTodoContext();
+  const navigate = useNavigate();
 
-	return (
-		<ListGroup.Item>
-			{item.title}
-			<Button
-				onClick={() => deleteTodo(item.id)}
-				variant="danger"
-				className="mx-2"
-			>
-				delete
-			</Button>
-			<Button onClick={() => navigate(`/edit/${item.id}`)} variant="dark">
-				edit
-			</Button>
-		</ListGroup.Item>
-	);
+  return (
+    <ListGroup.Item>
+      {item.name}
+      <Button variant="danger" className="mx-2">
+        delete
+      </Button>
+      <Button onClick={() => navigate(`/${item.id}`)} variant="dark">
+        edit
+      </Button>
+    </ListGroup.Item>
+  );
 };
 
 export default TodoItem;
